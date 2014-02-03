@@ -53,10 +53,16 @@ group :development do
   gem 'rails_layout'
   gem "thin"
   gem 'rack-livereload'
+  gem 'guard'
+  gem 'guard-livereload', require: false
+  gem "letter_opener"
 end
 
 group :test do
   gem 'rspec-rails'
-  gem 'database_cleaner', '< 1.1.0'
+end
+
+group :development, :test do
+  gem 'database_cleaner'
   gem "factory_girl_rails", "~> 4.0"
 end

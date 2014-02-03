@@ -3,6 +3,7 @@ Tasks::Application.routes.draw do
   devise_for :users
 
   resources :tasks
+  resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -52,7 +53,7 @@ Tasks::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'tasks'
+  root :to => 'tasks#index'
 
   # See how all your routes lay out with "rake routes"
 
