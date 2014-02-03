@@ -14,9 +14,8 @@
 ActiveRecord::Schema.define(:version => 20140203141140) do
 
   create_table "tasks", :force => true do |t|
-    t.string   "name"
-    t.string   "pitch"
     t.string   "state"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,9 +1,7 @@
-= simple_form_for(@task) do |f|
+= simple_form_for(@task, :html => {:class => 'form-horizontal'}) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :pitch
     = f.input :state
 
   .form-actions

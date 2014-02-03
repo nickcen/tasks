@@ -2,8 +2,6 @@
 
 FactoryGirl.define do
   factory :task do
-    name "task"
-    pitch "pitch"
     state "state 1"
   end
 end

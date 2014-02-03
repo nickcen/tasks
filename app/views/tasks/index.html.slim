@@ -1,22 +1,7 @@
-h1 Listing tasks
+h1 Tasks
 
-table
-  tr
-    th Name
-    th Pitch
-    th State
-    th
-    th
-    th
-
-  - @tasks.each do |task|
-    tr
-      td = task.name
-      td = task.pitch
-      td = task.state
-      td = link_to 'Show', task
-      td = link_to 'Edit', edit_task_path(task)
-      td = link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete
+.row
+  = render :partial => 'tasks/task', :collection => @tasks
 
 br
 

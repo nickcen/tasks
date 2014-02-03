@@ -1,3 +1,3 @@
 class Task < ActiveRecord::Base
-  attr_accessible :name, :pitch, :state
+  attr_accessible :state
 end

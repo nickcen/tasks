@@ -1,0 +1,6 @@
+.card.col-md-4
+  .task
+    p
+      = link_to "Task ##{task.id}", task
+    p
+      = link_to 'Edit', edit_task_path(task), :class => 'btn btn-info'
