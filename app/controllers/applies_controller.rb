@@ -3,9 +3,15 @@ class AppliesController < ApplicationController
 
   before_filter :authenticate_user!
 
-  belongs_to :task, :polymorphic => true, :optional => true
+  belongs_to :task, :user, :polymorphic => true, :optional => true
 
   custom_actions :resource => [:assign, :cancel, :abandon, :complete, :confirm]
+
+  [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled, :closed].each do |state|
+    has_scope state, :type => :boolean
+  end
+
+  respond_to :js, :only => :index
 
   def create
     @apply = Apply.new(:task => parent, :user => current_user)
@@ -21,5 +27,11 @@ class AppliesController < ApplicationController
         format.json { head :no_content }
       end
     end
+  end
+
+  protected
+
+  def collection
+    @applies ||= apply_scopes(end_of_association_chain).paginate(:page => params[:page], :per_page => 10)
   end
 end

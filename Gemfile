@@ -14,7 +14,10 @@ gem 'simple_form'
 gem 'will_paginate'
 
 gem 'bootstrap-will_paginate'
+
 gem 'inherited_resources'
+gem 'has_scope'
+gem 'responders'
 
 gem 'devise'
 gem 'cancan'

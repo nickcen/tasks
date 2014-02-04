@@ -1,26 +1,31 @@
 - user = @user.decorate
 
+.page-header
+  h1 = user.show_name
+
 p#notice = notice
 
-h2 Created Tasks
-table.table.table-striped
-  tr
-    th Name
-    th State
-    th Apply Count
-    th
-  = render :partial => 'users/tasks/task', :collection => user.tasks
+.panel.panel-primary
+  .panel-heading
+    .panel-title
+      | Created Tasks
+  table.table.table-striped
+    tr
+      th Name
+      th State
+      th Apply Count
+      th
+    = render :partial => 'users/tasks/task', :collection => user.tasks
 
+.panel.panel-primary
+  .panel-heading
+    .panel-title
+      | Applied Tasks
+  ul.nav.nav-pills
+    - [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled, :closed].each do |state|
+      li = link_to state, user_applies_path(current_user, state => true), :remote => :true
+    li = link_to 'All', user_applies_path(current_user), :remote => :true
 
-h2 Applied Tasks
-table.table.table-striped
-  tr
-    th Name
-    th State
-    th Apply Count
-    th
-  = render :partial => 'users/applies/apply', :collection => user.applies
+  = render 'users/applies/applied_tasks', :applies => user.applies
 
 = link_to 'Edit', edit_user_path(@user)
-'|
-= link_to 'Back', users_path

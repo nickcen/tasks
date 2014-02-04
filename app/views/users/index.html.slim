@@ -4,8 +4,6 @@ table.table.table-striped
   tr
     th Name
   = render :partial => 'users/user', :collection => @users
-    
 
 br
-
-= link_to 'New User', new_user_path
+= will_paginate @users

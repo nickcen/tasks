@@ -46,5 +46,9 @@ module ApplyStateMachine
         apply.task.confirm
       end
     end
+
+    [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled, :closed].each do |state|
+      scope state, where("state = '#{state}'")
+    end
   end
 end
