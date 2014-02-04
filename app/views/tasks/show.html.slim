@@ -20,6 +20,8 @@ table.table.table-striped
     th 
   = render :partial => 'tasks/applies/apply', :collection => task.applies
 
+= link_to 'Confirm', confirm_task_path(task), :method => :post
+'|
 = link_to 'Complete', complete_task_path(task), :method => :post
 '|
 = link_to 'Apply', new_task_apply_path(task)

@@ -39,6 +39,12 @@ module TaskStateMachine
           apply.complete
         end
       end
+
+      after_transition :completed => :confirmed do |task, transition|
+        task.applies.each do |apply|
+          apply.confirm
+        end
+      end
     end
   end
 end

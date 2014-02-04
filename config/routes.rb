@@ -7,6 +7,7 @@ Tasks::Application.routes.draw do
 
     member do
       post :complete
+      post :confirm
     end
   end
 
