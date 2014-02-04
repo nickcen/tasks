@@ -28,5 +28,17 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
+
+    can [:edit, :update, :destroy], Task do |task|
+      task.user == user
+    end
+
+    can :apply, Task do |task|
+      task.user != user && task.can_apply? && !task.applied?(user)
+    end
+
+    can :cancel, Task do |task|
+      task.user == user && task.can_cancel?
+    end
   end
 end

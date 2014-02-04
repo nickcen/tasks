@@ -20,8 +20,6 @@ table.table.table-striped
     th 
   = render :partial => 'tasks/applies/apply', :collection => task.applies
 
-- if task.can_apply?
-  = link_to 'Apply', new_task_apply_path(task), :class => 'btn btn-primary btn-sm'
-- if task.can_cancel?
-  = link_to 'Canel', cancel_task_path(task), :class => 'btn btn-danger btn-sm'
-= link_to 'Edit', edit_task_path(task), :class => 'btn btn-info btn-sm'
+= task.apply_link
+= task.cancel_link
+= task.edit_link
