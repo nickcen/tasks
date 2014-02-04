@@ -30,8 +30,20 @@ module ApplyStateMachine
         transition :assigned => :abandoned
       end
 
+      event :close do
+        transition :applied => :closed
+      end
+
       after_transition :applied => :assigned do |apply, transition|
         apply.task.assign
+      end
+
+      after_transition :assigned => :completed do |apply, transition|
+        apply.task.complete
+      end
+
+      after_transition :completed => :confirmed do |apply, transition|
+        apply.task.confirm
       end
     end
   end

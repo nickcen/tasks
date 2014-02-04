@@ -34,15 +34,21 @@ module TaskStateMachine
         transition :assigned => :abandoned
       end
 
-      after_transition :assigned => :completed do |task, transition|
+      after_transition :completed => :confirmed do |task, transition|
         task.applies.each do |apply|
-          apply.complete
+          apply.close
         end
       end
 
-      after_transition :completed => :confirmed do |task, transition|
+      after_transition any => :canceled do |task, transition|
         task.applies.each do |apply|
-          apply.confirm
+          apply.close
+        end
+      end
+
+      after_transition any => :abandoned do |task, transition|
+        task.applies.each do |apply|
+          apply.close
         end
       end
     end

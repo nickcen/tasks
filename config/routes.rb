@@ -6,8 +6,8 @@ Tasks::Application.routes.draw do
     resources :applies
 
     member do
-      post :complete
-      post :confirm
+      post :cancel
+      post :abandon
     end
   end
 
@@ -18,6 +18,8 @@ Tasks::Application.routes.draw do
       post :assign
       post :cancel
       post :abandon
+      post :complete
+      post :confirm
     end
   end
   # The priority is based upon order of creation:

@@ -10,6 +10,10 @@ tr
   td
     - if apply.can_assign?
       = link_to 'Assign', assign_apply_path(apply), :method => :post
+    - if apply.can_complete?
+      = link_to 'Complete', complete_apply_path(apply), :method => :post
+    - if apply.can_confirm?
+      = link_to 'Confirm', confirm_apply_path(apply), :method => :post
     - if apply.can_cancel?
       = link_to 'Cancel', cancel_apply_path(apply), :method => :post
     - if apply.can_abandon?
