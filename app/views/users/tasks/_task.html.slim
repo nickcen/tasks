@@ -3,4 +3,8 @@ tr
   td = link_to task.show_name, task
   td = task.show_state
   td = task.show_apply_count
-  
+  td
+    = link_to 'Edit', edit_task_path(task), :class => 'btn btn-info btn-sm'
+    - if task.can_cancel?
+      = link_to 'Cancel', cancel_task_path(task), :method => :post, :class => 'btn btn-danger btn-sm'
+    

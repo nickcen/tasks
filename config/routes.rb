@@ -7,7 +7,6 @@ Tasks::Application.routes.draw do
 
     member do
       post :cancel
-      post :abandon
     end
   end
 

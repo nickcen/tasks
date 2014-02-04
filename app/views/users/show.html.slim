@@ -8,8 +8,18 @@ table.table.table-striped
     th Name
     th State
     th Apply Count
+    th
   = render :partial => 'users/tasks/task', :collection => user.tasks
 
+
+h2 Applied Tasks
+table.table.table-striped
+  tr
+    th Name
+    th State
+    th Apply Count
+    th
+  = render :partial => 'users/applies/apply', :collection => user.applies
 
 = link_to 'Edit', edit_user_path(@user)
 '|
