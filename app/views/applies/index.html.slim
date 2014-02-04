@@ -1,0 +1,23 @@
+h1 Listing applies
+
+table
+  tr
+    th Task
+    th User
+    th State
+    th
+    th
+    th
+
+  - @applies.each do |apply|
+    tr
+      td = apply.task
+      td = apply.user
+      td = apply.state
+      td = link_to 'Show', apply
+      td = link_to 'Edit', edit_apply_path(apply)
+      td = link_to 'Destroy', apply, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Apply', new_apply_path

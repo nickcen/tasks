@@ -1,15 +1,13 @@
+- task = @task.decorate
+
 p#notice = notice
 
 p
   strong Name:
-  = @task.name
-p
-  strong Pitch:
-  = @task.pitch
-p
-  strong State:
-  = @task.state
+  = task.show_name
 
-= link_to 'Edit', edit_task_path(@task)
+= link_to 'Apply', new_task_apply_path(task)
+'|
+= link_to 'Edit', edit_task_path(task)
 '|
 = link_to 'Back', tasks_path

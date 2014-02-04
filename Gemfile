@@ -20,6 +20,7 @@ gem 'devise'
 gem 'cancan'
 
 gem 'state_machine'
+gem 'draper', '~> 1.3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -50,7 +51,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 group :development do
-  gem 'rails_layout'
   gem "thin"
   gem 'rack-livereload'
   gem 'guard'

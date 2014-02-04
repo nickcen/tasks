@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Task:
+  = @apply.task
+p
+  strong User:
+  = @apply.user
+p
+  strong State:
+  = @apply.state
+
+= link_to 'Edit', edit_apply_path(@apply)
+'|
+= link_to 'Back', applies_path
