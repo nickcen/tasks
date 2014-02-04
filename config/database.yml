@@ -23,4 +23,5 @@ production:
   username: ba5d740fd55426
   password: b8833cac
   host: us-cdbr-east-05.cleardb.net
+  port: 80
   database: heroku_ef9dbad870047b9
