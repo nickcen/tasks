@@ -60,6 +60,7 @@ group :production do
   gem 'mysql2'
   gem 'rails_12factor'
   gem 'unicorn'
+  gem 'pg'
 end
 
 group :development do
