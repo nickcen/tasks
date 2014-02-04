@@ -42,6 +42,10 @@ module ApplyStateMachine
         apply.task.complete
       end
 
+      after_transition :assigned => :abandoned do |apply, transition|
+        apply.task.abandon
+      end
+
       after_transition :completed => :confirmed do |apply, transition|
         apply.task.confirm
       end

@@ -8,14 +8,10 @@ tr
   td
     = apply.show_state
   td
-    - if apply.can_assign?
-      = link_to 'Assign', assign_apply_path(apply), :method => :post, :class => 'btn btn-primary btn-sm'
-    - if apply.can_confirm?
-      = link_to 'Confirm', confirm_apply_path(apply), :method => :post, :class => 'btn btn-primary btn-sm'
-
-    - if apply.can_complete?
-      = link_to 'Complete', complete_apply_path(apply), :method => :post, :class => 'btn btn-primary btn-sm'
-    - if apply.can_cancel?
-      = link_to 'Cancel', cancel_apply_path(apply), :method => :post, :class => 'btn btn-danger btn-sm'
-    - if apply.can_abandon?
-      = link_to 'Abandon', abandon_apply_path(apply), :method => :post, :class => 'btn btn-danger btn-sm'
+    = apply.assign_link
+    = apply.confirm_link
+    
+    = apply.complete_link
+    = apply.cancel_link
+    = apply.abandon_link
+    

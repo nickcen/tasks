@@ -4,7 +4,7 @@
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-1.upto(4).each do |i|
+1.upto(2).each do |i|
   u = FactoryGirl.create(:user, :user_type => i % 2)
   u.confirm!
 end

@@ -40,5 +40,29 @@ class Ability
     can :cancel, Task do |task|
       task.user == user && task.can_cancel?
     end
+
+    can [:edit, :update, :destroy], Apply do |apply|
+      apply.user == user
+    end
+
+    can :assign, Apply do |apply|
+      apply.task.user == user && apply.can_assign?
+    end
+
+    can :confirm, Apply do |apply|
+      apply.task.user == user && apply.can_confirm?
+    end
+
+    can :complete, Apply do |apply|
+      apply.user == user && apply.can_complete?
+    end
+
+    can :cancel, Apply do |apply|
+      apply.user == user && apply.can_cancel?
+    end
+
+    can :abandon, Apply do |apply|
+      apply.user == user && apply.can_abandon?
+    end
   end
 end

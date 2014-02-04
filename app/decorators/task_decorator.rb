@@ -17,14 +17,14 @@ class TaskDecorator < Draper::Decorator
   end
 
   def apply_link
-    h.link_to 'Apply', h.new_task_apply_path(task), :class => 'btn btn-primary btn-sm' if h.can?(:apply, object)
+    h.link_to 'Apply', h.new_task_apply_path(object), :class => 'btn btn-primary btn-sm' if h.can?(:apply, object)
   end
 
   def cancel_link
-    h.link_to 'Canel', h.cancel_task_path(task), :class => 'btn btn-danger btn-sm' if h.can?(:cancel, object)
+    h.link_to 'Canel', h.cancel_task_path(object), :class => 'btn btn-danger btn-sm' if h.can?(:cancel, object)
   end
 
   def edit_link
-    h.link_to 'Edit', h.edit_task_path(task), :class => 'btn btn-info btn-sm' if h.can?(:edit, object)
+    h.link_to 'Edit', h.edit_task_path(object), :class => 'btn btn-info btn-sm' if h.can?(:edit, object)
   end
 end

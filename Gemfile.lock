@@ -231,6 +231,7 @@ DEPENDENCIES
   letter_opener
   rack-livereload
   rails (= 3.2.15)
+  responders
   rspec-rails
   sass-rails (~> 3.2.3)
   simple_form
