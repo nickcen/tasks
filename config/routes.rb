@@ -16,6 +16,8 @@ Tasks::Application.routes.draw do
   resources :applies do
     member do
       post :assign
+      post :cancel
+      post :abandon
     end
   end
   # The priority is based upon order of creation:

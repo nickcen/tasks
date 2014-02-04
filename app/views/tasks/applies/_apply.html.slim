@@ -8,5 +8,9 @@ tr
   td
     = apply.show_state
   td
-    - if apply.task.can_assign?
+    - if apply.can_assign?
       = link_to 'Assign', assign_apply_path(apply), :method => :post
+    - if apply.can_cancel?
+      = link_to 'Cancel', cancel_apply_path(apply), :method => :post
+    - if apply.can_abandon?
+      = link_to 'Abandon', abandon_apply_path(apply), :method => :post

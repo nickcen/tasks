@@ -20,11 +20,14 @@ table.table.table-striped
     th 
   = render :partial => 'tasks/applies/apply', :collection => task.applies
 
-= link_to 'Confirm', confirm_task_path(task), :method => :post
+- if task.can_confirm?
+  = link_to 'Confirm', confirm_task_path(task), :method => :post
 '|
-= link_to 'Complete', complete_task_path(task), :method => :post
+- if task.can_complete?
+  = link_to 'Complete', complete_task_path(task), :method => :post
 '|
-= link_to 'Apply', new_task_apply_path(task)
+- if task.can_apply?
+  = link_to 'Apply', new_task_apply_path(task)
 '|
 = link_to 'Edit', edit_task_path(task)
 '|
