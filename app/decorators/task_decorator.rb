@@ -5,4 +5,8 @@ class TaskDecorator < Draper::Decorator
   def show_name
     "Task #{object.id}"
   end
+
+  def show_state
+    object.human_state_name
+  end
 end

@@ -4,6 +4,10 @@ Tasks::Application.routes.draw do
 
   resources :tasks do
     resources :applies
+
+    member do
+      post :complete
+    end
   end
 
   resources :users

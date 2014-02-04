@@ -6,6 +6,10 @@ p
   strong Name:
   = task.show_name
 
+p
+  strong State:
+  = task.show_state
+
 h2 Applies
 
 table.table.table-striped
@@ -16,6 +20,8 @@ table.table.table-striped
     th 
   = render :partial => 'tasks/applies/apply', :collection => task.applies
 
+= link_to 'Complete', complete_task_path(task), :method => :post
+'|
 = link_to 'Apply', new_task_apply_path(task)
 '|
 = link_to 'Edit', edit_task_path(task)

@@ -13,8 +13,7 @@ class AppliesController < ApplicationController
   end
 
   def assign
-    ap resource
-    @apply.assign
+    resource.assign
 
     respond_to do |format|
       format.html { redirect_to task_path(resource.task), notice: 'User Assigned.' }

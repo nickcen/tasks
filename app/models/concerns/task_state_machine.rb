@@ -33,6 +33,12 @@ module TaskStateMachine
       event :abandon do
         transition :assigned => :abandoned
       end
+
+      after_transition :assigned => :completed do |task, transition|
+        task.applies.each do |apply|
+          apply.complete
+        end
+      end
     end
   end
 end
