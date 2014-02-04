@@ -3,7 +3,15 @@ class TasksController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index]
 
+  belongs_to :user, :polymorphic => true, :optional => true
+
   custom_actions :resource => [:cancel]
+
+  [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled].each do |state|
+    has_scope state, :type => :boolean
+  end
+
+  respond_to :js, :only => :index
 
   [:cancel].each do |state|
     define_method state do
@@ -18,6 +26,6 @@ class TasksController < ApplicationController
 
   protected
   def collection
-    @tasks ||= end_of_association_chain.paginate(:page => params[:page], :per_page => 10)
+    @tasks ||= apply_scopes(end_of_association_chain).paginate(:page => params[:page], :per_page => 10)
   end
 end

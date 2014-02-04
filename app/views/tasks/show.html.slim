@@ -14,16 +14,18 @@ p
   strong User:
   = task.user.show_name
 
+.panel.panel-primary
+  .panel-heading
+    .panel-title
+      | Applies
 
-h2 Applies
-
-table.table.table-striped
-  tr
-    th User
-    th Date
-    th State
-    th 
-  = render :partial => 'tasks/applies/apply', :collection => task.applies
+  table.table.table-striped
+    tr
+      th User
+      th Date
+      th State
+      th 
+    = render :partial => 'tasks/applies/apply', :collection => task.applies
 
 = task.apply_link
 = task.cancel_link

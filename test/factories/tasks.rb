@@ -2,6 +2,5 @@
 
 FactoryGirl.define do
   factory :task do
-    state "initial"
   end
 end

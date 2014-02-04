@@ -52,5 +52,9 @@ module TaskStateMachine
         end
       end
     end
+
+    [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled].each do |state|
+      scope state, where("state = '#{state}'")
+    end
   end
 end

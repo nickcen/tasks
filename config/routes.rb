@@ -11,7 +11,8 @@ Tasks::Application.routes.draw do
   end
 
   resources :users do
-    resources :applies
+    resources :applies, :only => :index
+    resources :tasks, :only => :index
   end
 
   resources :applies do

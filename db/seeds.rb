@@ -4,12 +4,65 @@
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-1.upto(2).each do |i|
-  u = FactoryGirl.create(:user, :user_type => i % 2)
-  u.confirm!
-end
+u1 = FactoryGirl.create(:user)
+u1.confirm!
 
-1.upto(10).each do |i|
-  FactoryGirl.create(:task, :user_id => 1 + i%2)
-end
+u2 = FactoryGirl.create(:user)
+u2.confirm!
 
+u3 = FactoryGirl.create(:user)
+u3.confirm!
+
+
+p "----- Task -----"
+p "applied"
+task = FactoryGirl.create(:task, :user_id => 1)
+apply_1 = FactoryGirl.create(:apply, :task => task, :user => u2)
+apply_2 = FactoryGirl.create(:apply, :task => task, :user => u3)
+
+p "assigned"
+task = FactoryGirl.create(:task, :user_id => 1)
+apply_1 = FactoryGirl.create(:apply, :task => task, :user => u2)
+apply_2 = FactoryGirl.create(:apply, :task => task, :user => u3)
+
+apply_1.assign
+
+p "completed"
+task = FactoryGirl.create(:task, :user_id => 1)
+apply_1 = FactoryGirl.create(:apply, :task => task, :user => u2)
+apply_2 = FactoryGirl.create(:apply, :task => task, :user => u3)
+
+apply_1.assign
+apply_1.complete
+
+p "confirmed"
+task = FactoryGirl.create(:task, :user_id => 1)
+apply_1 = FactoryGirl.create(:apply, :task => task, :user => u2)
+apply_2 = FactoryGirl.create(:apply, :task => task, :user => u3)
+
+apply_1.assign
+apply_1.complete
+apply_1.confirm
+
+p "canceled"
+task = FactoryGirl.create(:task, :user_id => 1)
+apply_1 = FactoryGirl.create(:apply, :task => task, :user => u2)
+apply_2 = FactoryGirl.create(:apply, :task => task, :user => u3)
+
+task.cancel
+
+p "----- Apply -----"
+p "canceled"
+task = FactoryGirl.create(:task, :user_id => 1)
+apply_1 = FactoryGirl.create(:apply, :task => task, :user => u2)
+apply_2 = FactoryGirl.create(:apply, :task => task, :user => u3)
+
+apply_1.cancel
+
+p "abandoned"
+task = FactoryGirl.create(:task, :user_id => 1)
+apply_1 = FactoryGirl.create(:apply, :task => task, :user => u2)
+apply_2 = FactoryGirl.create(:apply, :task => task, :user => u3)
+
+apply_1.assign
+apply_1.abandon

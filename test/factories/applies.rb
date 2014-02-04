@@ -2,8 +2,5 @@
 
 FactoryGirl.define do
   factory :apply do
-    task nil
-    user nil
-    state "MyString"
   end
 end
