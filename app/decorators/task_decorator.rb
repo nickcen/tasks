@@ -2,6 +2,8 @@
 class TaskDecorator < Draper::Decorator
   delegate_all
 
+  decorates_association :user
+
   def show_name
     "Task #{object.id}"
   end

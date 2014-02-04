@@ -15,4 +15,8 @@ class TasksController < ApplicationController
       end
     end
   end
+
+  def collection
+    @tasks ||= end_of_association_chain.paginate(:page => params[:page], :per_page => 8)
+  end
 end

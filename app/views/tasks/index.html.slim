@@ -1,8 +1,14 @@
 h1 Tasks
 
-.row
+table.table.table-striped
+  tr
+    th Name
+    th State
+    th Apply Count
+    th Creater
   = render :partial => 'tasks/task', :collection => @tasks
 
 br
-
+= will_paginate @tasks
+br
 = link_to 'New Task', new_task_path

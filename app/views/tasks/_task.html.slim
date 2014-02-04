@@ -1,5 +1,6 @@
 - task = task.decorate
-.card.col-md-4
-  .task
-    p
-      = link_to task.show_name, task
+tr
+  td = link_to task.show_name, task
+  td = task.show_state
+  td = task.show_apply_count
+  td = link_to task.user.show_name, task.user
