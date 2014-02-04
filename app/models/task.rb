@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :state
+  include TaskStateMachine
 
   has_many :applies
   belongs_to :user

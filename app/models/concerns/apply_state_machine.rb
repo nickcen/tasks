@@ -1,19 +1,15 @@
 # encoding=utf-8
-module TaskStateMachine
+module ApplyStateMachine
   extend ActiveSupport::Concern
 
   included do
     attr_accessible :state  
 
-    state_machine :state, :initial => :initial do
-      def initialize
-        super
-      end
+    after_create do 
+      task.apply
+    end
 
-      event :apply do
-        transition [:initial, :applied] => :applied
-      end
-
+    state_machine :state, :initial => :applied do
       event :assign do
         transition :applied => :assigned
       end
@@ -27,11 +23,15 @@ module TaskStateMachine
       end
 
       event :cancel do
-        transition [:initial, :applied] => :canceled
+        transition :applied => :canceled
       end
 
       event :abandon do
         transition :assigned => :abandoned
+      end
+
+      after_transition :applied => :assigned do |apply, transition|
+        apply.task.assign
       end
     end
   end
