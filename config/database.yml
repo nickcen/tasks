@@ -19,7 +19,4 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
   database: mysql2://ba5d740fd55426:b8833cac@us-cdbr-east-05.cleardb.net/heroku_ef9dbad870047b9?reconnect=true
-  pool: 5
-  timeout: 5000
