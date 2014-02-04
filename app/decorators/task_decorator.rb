@@ -9,4 +9,8 @@ class TaskDecorator < Draper::Decorator
   def show_state
     object.human_state_name
   end
+
+  def show_apply_count
+    object.applies.count
+  end
 end

@@ -1,4 +1,14 @@
+- user = @user.decorate
+
 p#notice = notice
+
+h2 Created Tasks
+table.table.table-striped
+  tr
+    th Name
+    th State
+    th Apply Count
+  = render :partial => 'users/tasks/task', :collection => user.tasks
 
 
 = link_to 'Edit', edit_user_path(@user)
