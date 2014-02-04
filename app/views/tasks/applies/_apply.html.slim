@@ -1,0 +1,12 @@
+- apply = apply.decorate
+
+tr
+  td
+    = link_to apply.user.show_name, user_path(apply.user)
+  td
+    = link_to apply.show_apply_date
+  td
+    = apply.show_state
+  td
+    - if apply.task.can_assign?
+      = link_to 'Assign', assign_apply_path(apply), :method => :post

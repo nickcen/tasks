@@ -6,7 +6,7 @@ FactoryGirl.define do
 
   factory :user do
     name {generate(:user_name)}
-    email { "#{name}@taks.com".downcase }
+    email { "#{name}@task.com".downcase }
     password "123456"
   end
 end

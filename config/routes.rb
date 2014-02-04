@@ -6,9 +6,13 @@ Tasks::Application.routes.draw do
     resources :applies
   end
 
-  
   resources :users
-  resources :applies
+
+  resources :applies do
+    member do
+      post :assign
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

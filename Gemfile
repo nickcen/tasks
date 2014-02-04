@@ -11,9 +11,9 @@ gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.1.0'
 
 gem 'simple_form'
-gem "will_paginate"
+gem 'will_paginate'
 
-gem "bootstrap-will_paginate"
+gem 'bootstrap-will_paginate'
 gem 'inherited_resources'
 
 gem 'devise'
@@ -51,11 +51,13 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 group :development do
-  gem "thin"
+  gem 'thin'
   gem 'rack-livereload'
   gem 'guard'
   gem 'guard-livereload', require: false
-  gem "letter_opener"
+  gem 'letter_opener'
+  gem 'better_errors'
+  gem 'awesome_print'
 end
 
 group :test do
@@ -64,5 +66,5 @@ end
 
 group :development, :test do
   gem 'database_cleaner'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
 end

@@ -6,6 +6,16 @@ p
   strong Name:
   = task.show_name
 
+h2 Applies
+
+table.table.table-striped
+  tr
+    th User
+    th Date
+    th State
+    th 
+  = render :partial => 'tasks/applies/apply', :collection => task.applies
+
 = link_to 'Apply', new_task_apply_path(task)
 '|
 = link_to 'Edit', edit_task_path(task)
