@@ -24,6 +24,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def create
+    @task = Task.new(:user => current_user)
+    create!{task_path(@task)}
+  end
+
   protected
   def collection
     @tasks ||= apply_scopes(end_of_association_chain).paginate(:page => params[:page], :per_page => 10)
