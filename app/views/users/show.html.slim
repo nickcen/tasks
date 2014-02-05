@@ -11,8 +11,8 @@ p#notice = notice
       | Created Tasks
   ul.nav.nav-pills
     - [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled].each do |state|
-      li = link_to state, user_tasks_path(current_user, state => true), :remote => :true
-    li = link_to 'all', user_tasks_path(current_user), :remote => :true
+      li = link_to state, user_tasks_path(user, state => true), :remote => :true
+    li = link_to 'all', user_tasks_path(user), :remote => :true
 
   = render 'users/tasks/tasks', :tasks => user.tasks
 
@@ -22,8 +22,8 @@ p#notice = notice
       | Applied Tasks
   ul.nav.nav-pills
     - [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled, :closed].each do |state|
-      li = link_to state, user_applies_path(current_user, state => true), :remote => :true
-    li = link_to 'all', user_applies_path(current_user), :remote => :true
+      li = link_to state, user_applies_path(user, state => true), :remote => :true
+    li = link_to 'all', user_applies_path(user), :remote => :true
 
   = render 'users/applies/applied_tasks', :applies => user.applies
 
