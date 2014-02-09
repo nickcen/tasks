@@ -5,12 +5,6 @@ class TasksController < ApplicationController
 
   custom_actions :resource => [:cancel]
 
-  [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled].each do |state|
-    has_scope state, :type => :boolean
-  end
-
-  respond_to :js, :only => :index
-
   [:cancel].each do |state|
     define_method state do
       resource.send(state)
@@ -34,6 +28,6 @@ class TasksController < ApplicationController
 
   protected
   def collection
-    @tasks ||= apply_scopes(end_of_association_chain).paginate(:page => params[:page], :per_page => 10)
+    @tasks ||= end_of_association_chain.where(:state => [:initial, :apply]).paginate(:page => params[:page], :per_page => 10)
   end
 end
