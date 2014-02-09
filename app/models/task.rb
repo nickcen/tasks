@@ -4,7 +4,10 @@ class Task < ActiveRecord::Base
   has_many :applies
   belongs_to :user
 
-  attr_accessible :user
+  has_one :task_detail, :dependent => :destroy
+  accepts_nested_attributes_for :task_detail
+
+  attr_accessible :user_id, :task_detail, :task_detail_attributes
 
   def applied?(user)
     !applies.where(:user_id => user).blank?

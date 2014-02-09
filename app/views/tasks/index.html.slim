@@ -1,11 +1,6 @@
 h1 Tasks
 
-table.table.table-striped
-  tr
-    th Name
-    th State
-    th Apply Count
-    th Creater
+.row
   = render :partial => 'tasks/task', :collection => @tasks
 
 br

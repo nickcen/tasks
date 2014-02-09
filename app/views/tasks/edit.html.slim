@@ -1,8 +1,7 @@
-h1 Editing task
-
-== render 'form'
-
-= link_to 'Show', @task
-'|
-= link_to 'Back', tasks_path
-
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading
+        | Editing task        
+      .panel-body
+        == render 'form'

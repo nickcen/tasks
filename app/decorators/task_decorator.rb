@@ -3,6 +3,7 @@ class TaskDecorator < Draper::Decorator
   delegate_all
 
   decorates_association :user
+  decorates_association :task_detail
 
   def show_name
     "Task #{object.id}"
@@ -17,7 +18,7 @@ class TaskDecorator < Draper::Decorator
   end
 
   def apply_link
-    h.link_to 'Apply', h.new_task_apply_path(object), :class => 'btn btn-primary btn-sm' if h.can?(:apply, object)
+    h.link_to 'Apply', h.new_task_apply_path(object), :class => 'btn btn-primary btn-xs' if h.can?(:apply, object)
   end
 
   def cancel_link

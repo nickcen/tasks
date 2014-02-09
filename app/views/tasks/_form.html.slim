@@ -1,5 +1,11 @@
-= simple_form_for(@task, :html => {:class => 'form-horizontal'}) do |f|
+= simple_form_for @task do |f|
   = f.error_notification
+  .form-inputs
+    = f.simple_fields_for :task_detail do |df|
+      = df.input :bonus
+      = df.input :longitude
+      = df.input :latitude
+      /= df.input :expect_time
 
   .form-actions
     = f.button :submit

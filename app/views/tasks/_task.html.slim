@@ -1,6 +1,20 @@
 - task = task.decorate
-tr
-  td = link_to task.show_name, task
-  td = task.show_state
-  td = task.show_apply_count
-  td = link_to task.user.show_name, task.user
+.card.col-xs-4
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        = link_to task.show_name, task
+        .pull-right
+          = "$#{task.task_detail.show_bonus}"
+          |  / 
+          = task.show_apply_count
+          |  Applies
+
+    .panel-body
+      = "Longitude #{task.task_detail.show_longitude}"
+      br
+      = "Latitude #{task.task_detail.show_latitude}"
+    .panel-footer
+      = link_to task.user.show_name, task.user
+      .pull-right
+        = task.apply_link

@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :task do
+    task_detail
   end
 end

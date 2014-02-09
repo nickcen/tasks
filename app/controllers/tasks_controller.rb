@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   inherit_resources
 
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :taxis]
 
   belongs_to :user, :polymorphic => true, :optional => true
 
@@ -24,9 +24,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def new
+    @task = Task.new
+    @task.task_detail = TaskDetail.new
+  end
+
   def create
-    @task = Task.new(:user => current_user)
-    create!{task_path(@task)}
+    params[:task][:user_id] = current_user.id
+    create!
   end
 
   protected

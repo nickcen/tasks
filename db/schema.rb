@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140203150346) do
+ActiveRecord::Schema.define(:version => 20140208102604) do
 
   create_table "applies", :force => true do |t|
     t.integer  "task_id"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20140203150346) do
 
   add_index "applies", ["task_id"], :name => "index_applies_on_task_id"
   add_index "applies", ["user_id"], :name => "index_applies_on_user_id"
+
+  create_table "task_details", :force => true do |t|
+    t.integer  "bonus"
+    t.integer  "longitude"
+    t.integer  "latitude"
+    t.datetime "expect_time"
+    t.string   "location"
+    t.integer  "task_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "tasks", :force => true do |t|
     t.string   "state"

@@ -24,6 +24,8 @@ Tasks::Application.routes.draw do
       post :confirm
     end
   end
+
+  resources :taxi_tasks
   
   root :to => 'tasks#index'
 end
