@@ -2,7 +2,7 @@
   = f.error_notification
   .form-inputs
     = f.simple_fields_for :task_detail do |df|
-      = df.input :bonus
+      = df.input :bonus, :collection => [5, 10, 20]
       = df.input :longitude
       = df.input :latitude
       /= df.input :expect_time
