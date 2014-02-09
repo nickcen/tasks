@@ -1,0 +1,14 @@
+ul.nav.nav-pills
+  li class="#{params[:state].blank? ? 'active':''}" 
+    = link_to 'All', applies_user_path(resource)
+  - ['applied', 'assigned', 'completed', 'confirmed'].each do |state|
+    li class="#{params[:state] == state ? 'active':''}" 
+      = link_to state, applies_user_path(resource, :state => state)
+
+.panel
+  .panel-default
+    .panel-body
+      = render 'users/applies/applies', :applies => @applies
+
+br
+= will_paginate @applies

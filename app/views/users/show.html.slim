@@ -3,28 +3,4 @@
 .page-header
   h1 = user.show_name
 
-p#notice = notice
-
-.panel.panel-primary
-  .panel-heading
-    .panel-title
-      | Created Tasks
-  ul.nav.nav-pills
-    - [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled].each do |state|
-      li = link_to state, user_tasks_path(user, state => true), :remote => :true
-    li = link_to 'all', user_tasks_path(user), :remote => :true
-
-  = render 'users/tasks/tasks', :tasks => user.tasks
-
-.panel.panel-primary
-  .panel-heading
-    .panel-title
-      | Applied Tasks
-  ul.nav.nav-pills
-    - [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled, :closed].each do |state|
-      li = link_to state, user_applies_path(user, state => true), :remote => :true
-    li = link_to 'all', user_applies_path(user), :remote => :true
-
-  = render 'users/applies/applied_tasks', :applies => user.applies
-
 = link_to 'Edit', edit_user_path(@user)

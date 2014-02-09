@@ -1,0 +1,14 @@
+ul.nav.nav-pills
+  li class="#{params[:state].blank? ? 'active':''}" 
+    = link_to 'All', tasks_user_path(resource)
+  - ['applied', 'assigned', 'completed', 'confirmed'].each do |state|
+    li class="#{params[:state] == state ? 'active':''}" 
+      = link_to state, tasks_user_path(resource, :state => state)
+
+.panel
+  .panel-default
+    .panel-body
+      = render 'users/tasks/tasks', :tasks => @tasks
+
+br
+= will_paginate @tasks

@@ -11,8 +11,10 @@ Tasks::Application.routes.draw do
   end
 
   resources :users do
-    resources :applies, :only => :index
-    resources :tasks, :only => :index
+    member do 
+      get :tasks
+      get :applies
+    end
   end
 
   resources :applies do
@@ -24,8 +26,6 @@ Tasks::Application.routes.draw do
       post :confirm
     end
   end
-
-  resources :taxi_tasks
   
   root :to => 'tasks#index'
 end

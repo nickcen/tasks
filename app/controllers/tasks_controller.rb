@@ -3,8 +3,6 @@ class TasksController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :taxis]
 
-  belongs_to :user, :polymorphic => true, :optional => true
-
   custom_actions :resource => [:cancel]
 
   [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled].each do |state|

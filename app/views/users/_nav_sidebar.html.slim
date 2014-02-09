@@ -1,0 +1,7 @@
+ul.nav.nav-pills.nav-stacked
+  li class="#{params[:action] == 'show' ? 'active':''}"
+    = link_to 'Profile', user_path(resource)
+  li class="#{params[:action] == 'tasks' ? 'active':''}"
+    = link_to "Tasks I've Posted", tasks_user_path(resource)
+  li  class="#{params[:action] == 'applies' ? 'active':''}"
+    = link_to "Tasks I'm Running", applies_user_path(resource)

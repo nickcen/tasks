@@ -3,7 +3,7 @@ class AppliesController < ApplicationController
 
   before_filter :authenticate_user!
 
-  belongs_to :task, :user, :polymorphic => true, :optional => true
+  belongs_to :task, :optional => true
 
   custom_actions :resource => [:assign, :cancel, :abandon, :complete, :confirm]
 
