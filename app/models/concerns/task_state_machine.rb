@@ -56,5 +56,7 @@ module TaskStateMachine
     [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled].each do |state|
       scope state, where("state = '#{state}'")
     end
+
+    scope :alls, where("state not in ('abandoned', 'canceled')")
   end
 end

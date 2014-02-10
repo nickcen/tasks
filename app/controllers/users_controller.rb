@@ -9,16 +9,18 @@ class UsersController < ApplicationController
     if ['applied', 'assigned', 'completed', 'confirmed'].include?(params[:state])
       @tasks = resource.tasks.send(params[:state]).paginate(:page => params[:page], :per_page => 10)
     else
-      @tasks = resource.tasks.paginate(:page => params[:page], :per_page => 10)
+      @tasks = resource.tasks.alls.paginate(:page => params[:page], :per_page => 10)
     end
+    @tasks = @tasks.order('updated_at desc')
   end
 
   def applies
     if ['applied', 'assigned', 'completed', 'confirmed'].include?(params[:state])
       @applies = resource.applies.send(params[:state]).paginate(:page => params[:page], :per_page => 10)
     else
-      @applies = resource.applies.paginate(:page => params[:page], :per_page => 10)
+      @applies = resource.applies.alls.paginate(:page => params[:page], :per_page => 10)
     end
+    @applies = @applies.order('updated_at desc')
   end
 
   protected

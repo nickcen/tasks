@@ -23,7 +23,7 @@ class AppliesController < ApplicationController
       resource.send(state)
 
       respond_to do |format|
-        format.html { redirect_to task_path(resource.task), notice: 'User Assigned.' }
+        format.html { redirect_to :back, notice: 'User Assigned.' }
         format.json { head :no_content }
       end
     end

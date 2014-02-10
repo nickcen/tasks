@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   include TaskStateMachine
 
-  has_many :applies
+  has_many :applies, :dependent => :destroy
   belongs_to :user
 
   has_one :task_detail, :dependent => :destroy

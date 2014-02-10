@@ -4,11 +4,11 @@ class TaskDetailDecorator < Draper::Decorator
   delegate_all
 
   def show_longitude
-    object.longitude
+    object.longitude / 1000.0
   end
 
   def show_latitude
-    object.latitude
+    object.latitude / 1000.0
   end
 
   def show_bonus

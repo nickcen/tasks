@@ -54,5 +54,7 @@ module ApplyStateMachine
     [:applied, :assigned, :completed, :confirmed, :abandoned, :canceled, :closed].each do |state|
       scope state, where("state = '#{state}'")
     end
+
+    scope :alls, where("state not in ('abandoned', 'canceled')")
   end
 end

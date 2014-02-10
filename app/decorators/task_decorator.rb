@@ -22,7 +22,7 @@ class TaskDecorator < Draper::Decorator
   end
 
   def cancel_link
-    h.link_to 'Canel', h.cancel_task_path(object), :class => 'btn btn-danger btn-xs' if h.can?(:cancel, object)
+    h.link_to 'Canel', h.cancel_task_path(object), :class => 'btn btn-danger btn-xs', :method => :post if h.can?(:cancel, object)
   end
 
   def edit_link

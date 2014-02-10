@@ -8,4 +8,18 @@
       /= df.input :expect_time
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, :class => 'btn-primary'
+
+javascript:
+  $(function(){
+    function success(position) {
+      console.log(position)
+      $('#task_task_detail_attributes_longitude').val(position.coords.longitude)
+      $('#task_task_detail_attributes_latitude').val(position.coords.latitude)
+      console.log()
+    }
+    function fail(error) {
+      console.log(error)
+    }
+    navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+  })
