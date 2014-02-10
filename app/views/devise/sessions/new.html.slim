@@ -1,0 +1,19 @@
+.row
+  .col-md-offset-2.col-md-8.col-xs-12
+    .panel.panel-default
+      .panel-heading
+        | Sign in
+      .panel-body
+        = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          = f.error_notification 
+          .form-inputs
+            = f.input :email, :required => false, :autofocus => true
+            = f.input :password, :required => false
+            = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+          
+
+          .form-actions
+            = f.button :submit, "Sign in", :class => 'btn-info'
+            = link_to "Sign up", new_registration_path(resource_name), :class => 'btn'
+      .panel-footer     
+        = render "devise/shared/links"

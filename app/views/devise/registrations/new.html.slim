@@ -1,0 +1,19 @@
+.row
+  .col-md-offset-2.col-md-8.col-xs-12
+    .panel.panel-default
+      .panel-heading
+        | Sign up
+      .panel-body
+        = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+          = f.error_notification
+
+          .form-inputs
+            = f.input :email, :required => true, :autofocus => true
+            = f.input :phone, :required => false
+            = f.input :password, :required => true
+            = f.input :password_confirmation, :required => true
+          
+
+          .form-actions
+            = f.button :submit, "Sign up", :class => 'btn-info'
+            = link_to "Sign in", new_session_path(resource_name), :class => 'btn'
